@@ -3,7 +3,9 @@ package com.example.reviewerkotlin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.reviewerkotlin.databinding.ActivityMainBinding
 import com.example.reviewerkotlin.presentation.reviews_feed.ReviewsFeed
 import kotlinx.coroutines.delay
@@ -18,16 +20,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportFragmentManager.beginTransaction()
-            .addToBackStack(null)
-            .add(binding.container.id, ReviewsFeed.newInstance())
-            .commit()
-        lifecycleScope.launchWhenCreated {
-            val a = measureTime {
-                delay(5 * 1000)
-                supportFragmentManager.popBackStack()
+        lifecycleScope.launchWhenStarted {
+            //TODO: Временный вариант поменять позже на инициализацию с последнего состояния
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                supportFragmentManager.beginTransaction()
+                    .addToBackStack(null)
+                    .add(binding.container.id, ReviewsFeed.newInstance())
+                    .commit()
             }
-            Toast.makeText(this@MainActivity, "$a", Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -4,7 +4,10 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -16,24 +19,9 @@ import kotlin.concurrent.thread
 class ReviewsFeedViewModel : ViewModel() {
     private val _reviews: MutableLiveData<Int> = MutableLiveData(1)
 
-    fun startReviewFetching() {
-        viewModelScope.launch() {
-            launch {
-                while(true) {
-                    println(123)
-                }
-            }
-            launch {
-                while(true) {
-                    println(-Int.MAX_VALUE)
-                }
-            }
-            println(viewModelScope.isActive)
-        }
-    }
+    fun startReviewFetching(){
+        viewModelScope.launch {
 
-    override fun onCleared() {
-        super.onCleared()
-        println(viewModelScope.isActive)
+        }
     }
 }
