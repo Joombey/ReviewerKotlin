@@ -3,6 +3,8 @@ package com.example.reviewerkotlin.data.room.entites
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.ForeignKey.Companion.CASCADE
+import androidx.room.ForeignKey.Companion.RESTRICT
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import java.sql.Date
@@ -14,26 +16,49 @@ import java.sql.Date
         ForeignKey(
             entity = AuthorEntity::class,
             parentColumns = ["id"],
-            childColumns = ["author_id"]
+            childColumns = ["author_id"],
+            onDelete = CASCADE,
+            onUpdate = CASCADE,
+            deferred = true
         ),
         ForeignKey(
-            entity =
+            entity = ParagraphEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["paragraph_id"],
+            onDelete = RESTRICT,
+            onUpdate = CASCADE,
+            deferred = true
+        ),
+        ForeignKey(
+            entity = ItemEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["item_id"],
+            onDelete = CASCADE,
+            onUpdate = CASCADE
         )
     ]
 )
 data class ReviewEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: Int,
+    val id: Int,
     //Foreign Keys
     @ColumnInfo(name = "author_id")
-    var authorId: Int,
+    @PrimaryKey
+    val authorId: Int,
     @ColumnInfo(name = "paragraph_id")
-    var paragraph: Int,
+    val paragraphId: Int?,
+    @ColumnInfo(name = "item_id")
+    val itemId: Int,
 
-    var title: String,
+
+    val title: String,
+    @ColumnInfo(defaultValue = "0")
     var score: Float,
-    var likes: Int,
+    @ColumnInfo(defaultValue = "0")
+    val likes: Int,
+    @ColumnInfo(defaultValue = "0")
     var dislikes: Int,
-    var reviewCreationTime: Date,
+    @ColumnInfo(name = "creation_time")
+    val reviewCreationTime: Date,
 )

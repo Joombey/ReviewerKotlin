@@ -1,19 +1,9 @@
-package com.example.reviewerkotlin.presentation.reviews_feed
+package com.example.reviewerkotlin.presentation.reviews_feed_presentation
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import kotlin.concurrent.thread
 
 
 class ReviewsFeedViewModel : ViewModel() {

@@ -2,16 +2,12 @@ package com.example.reviewerkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.reviewerkotlin.databinding.ActivityMainBinding
-import com.example.reviewerkotlin.presentation.reviews_feed.ReviewsFeed
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import com.example.reviewerkotlin.presentation.reviews_feed_presentation.ReviewsFeed
 import kotlin.time.ExperimentalTime
-import kotlin.time.measureTime
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

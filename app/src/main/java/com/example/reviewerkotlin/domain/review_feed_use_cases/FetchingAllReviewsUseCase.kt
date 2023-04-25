@@ -1,6 +1,6 @@
-package com.example.reviewerkotlin.domain
+package com.example.reviewerkotlin.domain.review_feed_use_cases
 
-import com.example.reviewerkotlin.data.repositories.ReviewRepository
+import com.example.reviewerkotlin.domain.repositories.ReviewRepository
 
 class FetchingAllReviewsUseCase(
     private val reviewRepository: ReviewRepository
