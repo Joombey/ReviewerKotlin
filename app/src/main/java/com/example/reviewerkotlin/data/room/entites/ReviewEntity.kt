@@ -8,6 +8,7 @@ import androidx.room.ForeignKey.Companion.RESTRICT
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import java.sql.Date
+import java.util.UUID
 
 @Entity(
     tableName = "reviews",
@@ -39,17 +40,17 @@ import java.sql.Date
     ]
 )
 data class ReviewEntity(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @ColumnInfo(name = "id")
-    val id: Int,
+    val id: String = UUID.randomUUID().toString(),
     //Foreign Keys
     @ColumnInfo(name = "author_id")
     @PrimaryKey
-    val authorId: Int,
+    val authorId: String,
     @ColumnInfo(name = "paragraph_id")
-    val paragraphId: Int?,
+    val paragraphId: String?,
     @ColumnInfo(name = "item_id")
-    val itemId: Int,
+    val itemId: String,
 
 
     val title: String,

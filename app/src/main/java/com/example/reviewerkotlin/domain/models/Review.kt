@@ -1,9 +1,10 @@
 package com.example.reviewerkotlin.domain.models
 
-import java.util.Date
+import java.sql.Date
 
 
 data class Review(
+   val id: String,
    val reviewAuthor: Author,
    val reviewParagraphs: List<Paragraph>,
    val reviewItem: Item,

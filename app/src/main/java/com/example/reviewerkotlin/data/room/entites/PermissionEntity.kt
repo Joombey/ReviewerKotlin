@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "permissions")
 data class PermissionEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    @PrimaryKey
+    val id: String,
     @ColumnInfo(name = "review_making")
     val reviewMaking: Boolean,
     val moderating: Boolean,

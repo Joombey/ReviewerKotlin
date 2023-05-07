@@ -20,10 +20,10 @@ import androidx.room.PrimaryKey
     ]
 )
 data class ParagraphEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    @PrimaryKey
+    val id: String,
     val title: String,
     val text: String,
     @ColumnInfo(name = "photo_id")
-    val photoId: Int,
+    val photoId: String,
 )

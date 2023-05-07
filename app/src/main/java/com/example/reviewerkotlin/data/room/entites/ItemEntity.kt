@@ -20,8 +20,8 @@ import androidx.room.PrimaryKey
     ]
 )
 data class ItemEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    @PrimaryKey
+    val id: String,
     @ColumnInfo(name = "item_name")
     val itemName: String,
     @ColumnInfo(name = "price")
@@ -31,6 +31,6 @@ data class ItemEntity(
     @ColumnInfo(name = "weight")
     val weight: Float,
     @ColumnInfo(name = "item_photo_id")
-    val itemPhotoId: Int,
+    val itemPhotoId: String,
     val Shop: String?
 )

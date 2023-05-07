@@ -13,6 +13,8 @@ import com.example.reviewerkotlin.data.room.entites.ReviewEntity
     exportSchema = true,
 )
 abstract class ApplicationDatabase: RoomDatabase() {
+
+    abstract fun reviewDao() : ReviewDao
     companion object{
         private var INSTANCE: ApplicationDatabase? = null
         fun getDatabase(context: Context): ApplicationDatabase{

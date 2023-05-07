@@ -1,12 +1,10 @@
 package com.example.reviewerkotlin.data.room.entites
 
-import android.provider.ContactsContract.Contacts.Photo
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.Companion.CASCADE
 import androidx.room.ForeignKey.Companion.SET_NULL
-import androidx.room.OnConflictStrategy
 import androidx.room.PrimaryKey
 import com.example.reviewerkotlin.domain.models.utils.AuthService
 import java.time.LocalDateTime
@@ -33,15 +31,15 @@ import java.time.LocalDateTime
     ]
 )
 data class AuthorEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    @PrimaryKey
+    val id: String,
     val name: String,
     @ColumnInfo(name = "creation_time")
     val accountCreationDate: LocalDateTime,
     @ColumnInfo(name = "photo_id")
-    val photoId: Int,
+    val photoId: String,
     @ColumnInfo(name = "permission_id")
-    val permissionId: Int,
+    val permissionId: String,
     @ColumnInfo(name = "auth_service")
     val authService: AuthService
 )
