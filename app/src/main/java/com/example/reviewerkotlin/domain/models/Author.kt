@@ -5,6 +5,7 @@ import com.example.reviewerkotlin.domain.models.utils.PhotoSource
 import java.util.Date
 
 data class Author(
+    val id: String,
     val name: String,
     val photoSource: PhotoSource,
     val accountCreationTime: Date,

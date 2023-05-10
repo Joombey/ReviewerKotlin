@@ -14,16 +14,16 @@ import javax.inject.Singleton
 object DatabaseModule {
 
     @Provides
-    private fun getDb (
+    @Singleton
+    fun provideReviewDao(database: ApplicationDatabase){
+        database.reviewDao()
+    }
+
+    @Provides
+    private fun provideDatabase (
         @ApplicationContext
         applicationContext: Context
     ) : ApplicationDatabase {
         return ApplicationDatabase.getDatabase(applicationContext)
-    }
-
-    @Provides
-    @Singleton
-    fun getReviewDao(database: ApplicationDatabase){
-        database.reviewDao()
     }
 }
